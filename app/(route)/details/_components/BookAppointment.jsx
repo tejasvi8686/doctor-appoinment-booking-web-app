@@ -1,6 +1,6 @@
 import React from "react";
 
-const BookAppointment = () => {
+const BookAppointment = ({doctor}) => {
   return <div>BookAppointment</div>;
 };
 

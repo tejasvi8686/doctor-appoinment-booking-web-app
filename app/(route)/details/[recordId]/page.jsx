@@ -10,6 +10,7 @@ const Details = ({ params }) => {
   }, []);
   const getDoctorById = () => {
     GlobalApi.getDoctorById(params.recordId).then((resp) => {
+      console.log(resp);
       setDoctor(resp.data.data);
     });
   };
