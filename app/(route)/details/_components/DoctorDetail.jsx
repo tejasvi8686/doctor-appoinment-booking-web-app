@@ -72,9 +72,8 @@ function DoctorDetail({ doctor }) {
               </Link>
             ))}
           </div>
-          <Button className="mt-3 rounded-full">
-            <BookAppointment doctor={doctor} />
-          </Button>
+
+          <BookAppointment doctor={doctor} />
         </div>
       </div>
       {/* About Doctor  */}
