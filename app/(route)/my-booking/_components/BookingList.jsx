@@ -1,26 +1,23 @@
-import { Button } from '../../../../components/ui/button'
-import { Calendar, Clock, MapPin } from 'lucide-react'
-import moment from 'moment'
-import Image from 'next/image'
-import React from 'react'
-import CancelAppointment from './CancelAppointment'
-import GlobalApi from '../../../../app/_utils/GlobalApi'
-import { toast } from 'sonner'
+import { Button } from "../../../../components/ui/button";
+import { Calendar, Clock, MapPin } from "lucide-react";
+import moment from "moment";
+import Image from "next/image";
+import React from "react";
+import CancelAppointment from "./CancelAppointment";
+import GlobalApi from "../../../../app/_utils/GlobalApi";
+import { toast } from "sonner";
 
-const BookingList = ({bookingList,expired,updateRecord }) => {
-
-    // const onDeleteBooking=(item)=>{
-    //     console.log(item)
-    //     GlobalApi.deleteBooking(item.id).then(resp=>{
-    //       console.log(resp);
-    //       if(resp)
-    //       {
-    //         toast('Booking Delete Successfully!');
-    //         updateRecord()
-    //       }
-    //     })
-    //   }
-
+const BookingList = ({ bookingList, expired, updateRecord }) => {
+  const onDeleteBooking = (item) => {
+    console.log(item);
+    GlobalApi.deleteBooking(item.id).then((resp) => {
+      console.log(resp);
+      if (resp) {
+        toast("Booking Delete Successfully!");
+        updateRecord();
+      }
+    });
+  };
 
   return (
     <div>
@@ -29,7 +26,8 @@ const BookingList = ({bookingList,expired,updateRecord }) => {
           <div className=" flex gap-4 items-center border p-5 m-3 rounded-lg">
             <Image
               src={
-                item?.attributes?.doctors?.data[0]?.attributes?.image?.data[0]?.attributes?.url
+                item?.attributes?.doctors?.data[0]?.attributes?.image?.data[0]
+                  ?.attributes?.url
               }
               className="rounded-full h-[70px] w-[70px] object-cover"
               width={70}
@@ -40,10 +38,9 @@ const BookingList = ({bookingList,expired,updateRecord }) => {
               <h2 className="font-bold text-[18px] items-center flex justify-between">
                 {item.attributes?.doctors?.data[0]?.attributes?.Name}
                 {!expired && (
-                    <Button variant="outline" className="text-primary border-primary">Cancel appointment</Button>
-                //   <CancelAppointment
-                //     onContinueClick={() => onDeleteBooking(item)}
-                //   />
+                  <CancelAppointment
+                    onContinueClick={() => onDeleteBooking(item)}
+                  />
                 )}
               </h2>
               <h2 className="flex gap-2 text-gray-500">
