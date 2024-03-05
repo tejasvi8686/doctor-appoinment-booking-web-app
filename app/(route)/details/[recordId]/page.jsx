@@ -1,5 +1,6 @@
 "use client";
 import DoctorDetail from "../_components/DoctorDetail";
+import DoctorSuggestionList from '../_components/DoctorSuggestionList';
 import GlobalApi from "../../../_utils/GlobalApi";
 import React, { useEffect, useState } from "react";
 
@@ -24,7 +25,9 @@ const Details = ({ params }) => {
           {doctor && <DoctorDetail doctor={doctor} />}
         </div>
         {/* Doctor Suggestion  */}
-        <div>{/* <DoctorSuggestionList /> */}</div>
+        <div>
+          <DoctorSuggestionList />
+        </div>
       </div>
     </div>
   );
