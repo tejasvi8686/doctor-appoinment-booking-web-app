@@ -8,6 +8,7 @@ const nextConfig = {
       "i.ibb.co",
       "lh3.googleusercontent.com",
     ],
+    unoptimized: true,
   },
 };
 
